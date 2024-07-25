@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="weather.css">
+</head>
+
+<body>
+    <nav>
+        <div class="nav">
+            <li id="icon"><a><svg xmlns="http://www.w3.org/2000/svg" height="34px" viewBox="0 -960 960 960" width="24px"
+                        fill="#e8eaed">
+                        <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
+                    </svg>
+                </a></li>
+            <ul class="navbar" id="menu">
+                <li><a href="#" id="logo">Mini Projects</a></li>
+
+                <li><a href="index.html">Home</a></li>
+                <div class="dropdown">
+                    <li><a href="#">Projects</a></li>
+                    <div class="dropdown-content">
+                        <li><a href="todo.html">To-Do-List</a></li>
+                        <li><a href="weather.html">Weather App</a></li>
+                        <li><a href="gallary.html">Gallary</a></li>
+                    </div>
+                </div>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">About Us</a></li>
+
+            </ul>
+        </div>
+    </nav>
+    <div class="box">
+        <div class="imgage" id="weather"><img src="" alt="" id="weatherr"></div>
+        <div class="data" id="celcious"></div>
+    </div>
+    <!-- <div class="container"> -->
+        <div class="dropdown-city">
+            <li><a href="#">Select Your City</a></li>
+            <div class="dropdown-content-city">
+                <li><a href="#" onclick="checkweather()">Ahmedabad</a></li>
+                <li><a href="#" onclick="checkweather()">Mumbai</a></li>
+                <li><a href="#" onclick="checkweather()">Surat</a></li>
+                <li><a href="#" onclick="checkweather()">Rajkot</a></li>
+            </div>
+        </div>
+        
+            
+      
+
+    <!-- </div> -->
+    <script>
+        let icon = document.getElementById('icon')
+        icon.click()
+        icon.addEventListener('click', function () {
+            let displaynav = document.getElementById('menu')
+            displaynav.style.display = displaynav.style.display === 'none' ? 'block' : 'none';
+        })
+        console.log(icon)
+    </script>
+    <script>
+        function checkweather() {
+            let temperature = Math.floor(Math.random(70) * 100)
+            if (temperature > 10 && temperature < 20) {
+               
+                let bgimg=document.getElementById('weatherr').src='winter.png';
+                document.body.style.backgroundColor="rgba(185, 238, 240, 0.253)"
+                let celcious = document.getElementById('celcious').innerText = temperature + "°C\t" + "It's Cold Outside"
+            }
+            else if (temperature > 20 && temperature < 40) {
+           
+                let bgimg=document.getElementById('weatherr').src='rainy.png';
+                document.body.style.backgroundColor="rgba(174, 176, 179, 0.253)"
+                let celcious = document.getElementById('celcious').innerText = temperature + "°C\t" + "It's Rainy Outside"
+            }
+            else if (temperature > 40 && temperature < 60) {
+               
+                let bgimg=document.getElementById('weatherr').src='sunny.png';
+                document.body.style.backgroundColor="rgba(176, 221, 51, 0.253)"
+                let celcious = document.getElementById('celcious').innerText = temperature + "°C\t" + "It's Sunny Outside"
+            }
+            else {
+                let celcious = document.getElementById('celcious').innerText = temperature + "°C\t" + "Lets Enjoy the Sky "
+
+            }
+
+        }
+    </script>
+</body>
+
+</html>

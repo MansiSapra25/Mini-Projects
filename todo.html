@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="todo.css">
+</head>
+
+<body>
+    <nav>
+        <div class="nav">
+            <li id="icon"><a><svg xmlns="http://www.w3.org/2000/svg" height="34px" viewBox="0 -960 960 960" width="24px"
+                        fill="#e8eaed">
+                        <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
+                    </svg>
+                </a></li>
+            <ul class="navbar" id="menu">
+                <li><a href="#" id="logo">Mini Projects</a></li>
+
+                <li><a href="index.html">Home</a></li>
+                <div class="dropdown">
+                    <li><a href="#">Projects</a></li>
+                    <div class="dropdown-content">
+                        <li><a href="todo.html">To-Do-List</a></li>
+                        <li><a href="weather.html">Weather App</a></li>
+                        <li><a href="gallary.html">Gallary</a></li>
+                    </div>
+                </div>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">About Us</a></li>
+
+            </ul>
+        </div>
+    </nav>
+<div class="container">
+    <input type="text" id="textfield" placeholder="List Your Tasks">
+    <input type="submit" id="submit" onclick="addtask()" value="Add"></input>
+   
+    <ul id="list">
+
+    </ul>
+</div>
+    
+    <script>
+        let icon = document.getElementById('icon')
+        icon.click()
+        icon.addEventListener('click', function () {
+            let displaynav = document.getElementById('menu')
+            displaynav.style.display = displaynav.style.display === 'none' ? 'block' : 'none';
+        })
+        console.log(icon)
+    </script>
+    <script>
+        function addtask() {
+            let task = document.getElementById('textfield').value;//value taken
+            console.log(task)
+            var li = document.createElement('li')//li creted
+            li.className="listtag"
+            li.textContent = task
+
+            let close = document.createElement('span')//close btn created
+            close.className = "close"
+            close.style.direction="inline"
+            close.style.marginLeft = "10vw"
+            close.style.cursor = "pointer"
+            close.innerText = "X"
+            close.addEventListener('click', function () {
+                this.parentElement.remove();
+            });
+            li.appendChild(close);
+
+
+            let list = document.getElementById('list')
+            li.appendChild(close)
+            list.appendChild(li)
+
+        }
+
+
+    </script>
+</body>
+
+</html>
